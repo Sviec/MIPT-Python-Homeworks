@@ -1,4 +1,5 @@
 import numpy as np
+from task_3 import multichannel_convolution
 
 
 def create_vector(n):
@@ -45,6 +46,7 @@ def get_matrix_trace(matrix):
     print(sum([matrix[i][i] for i in range(max(len(matrix), len(matrix[0])))]))
 
 
+@multichannel_convolution
 def conv2d(matrix, kernel, stride=1):
     rows, cols = matrix.shape
     k_rows, k_cols = kernel.shape
@@ -58,4 +60,20 @@ def conv2d(matrix, kernel, stride=1):
             patch = matrix[i * stride:i * stride + k_rows, j * stride:j * stride + k_cols]
             result[i, j] = np.sum(patch * kernel)
 
-    print_matrix(result)
+    return result
+
+
+image = np.random.rand(5, 5, 3)
+
+kernel = np.array([
+    [1, 0, -1],
+    [1, 0, -1],
+    [1, 0, -1]
+])
+
+out = conv2d(image, kernel, stride=1)
+print("Исходное изображение:", image)
+print("Исходная форма:", image.shape)
+print("Ядро:", kernel)
+print("Результат свертки:", out)
+print("Результат свертки (формат):", out.shape)
