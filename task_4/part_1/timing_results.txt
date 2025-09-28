@@ -1,0 +1,7 @@
+Функция:	Среднее время выполнения (секунды)
+multiply_matrix_by_matrix:	0.13234998
+multiply_vector_by_matrix:	0.02269034
+trace_matrix:	0.02153013
+dot_product:	0.00043999
+histogram:	0.00023996
+convolve:	0.00034997
