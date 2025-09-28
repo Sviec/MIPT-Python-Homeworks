@@ -10,7 +10,7 @@ def create_matrix(n, m):
     print_matrix([[np.random.randint(10) for _ in range(n)] for _ in range(m)])
 
 
-def multiplicate_matrix_by_vector(n):
+def multiply_matrix_by_vector(n):
     matrix = [[np.random.randint(1, 10) for _ in range(n)] for _ in range(n)]
     vector = [np.random.randint(1, 10) for _ in range(n)]
 
