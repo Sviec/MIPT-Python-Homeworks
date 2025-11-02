@@ -70,7 +70,10 @@ class ImageConverter:
         result = MonochromeImage(src.width, src.height)
         data = src.get_data().astype(np.float32)
 
-        gray_data = np.mean(data, axis=2).astype(np.uint8)
+        gray_data = (0.299 * data[:, :, 0] +
+                     0.587 * data[:, :, 1] +
+                     0.114 * data[:, :, 2])
+        gray_data = np.clip(gray_data, 0, 255).astype(np.uint8)
         result.data = gray_data
         return result
 
